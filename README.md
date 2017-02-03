@@ -1,1 +1,1 @@
-# FileInBin
+Import any file into C# code

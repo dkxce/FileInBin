@@ -1,0 +1,29 @@
+using System;
+using System.IO;
+using System.IO.Compression;
+using System.Collections.Generic;
+using System.Text;
+
+namespace FileInBin
+{
+    public class F_{FileNameWE} : IFileInBin
+    {                
+        public void Save(string filename)
+        {
+            FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write);
+            fs.Write(filedata, 0, filedata.Length);
+            fs.Close();
+
+            File.SetCreationTimeUtc(filename, CreatedUTC);
+            File.SetLastWriteTimeUtc(filename, ModifiedUTC);
+        }
+		
+		public ulong Size()
+        {
+            return (ulong)filedata.Length;
+        }
+
+        private DateTime ModifiedUTC = {ModifiedUTC};
+        private DateTime CreatedUTC = {CreatedUTC};
+        private string FileName = "{FileName}";
+        internal static byte[] filedata = new byte[] {
